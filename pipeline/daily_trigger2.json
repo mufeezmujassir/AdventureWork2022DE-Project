@@ -1,0 +1,25 @@
+{
+    "name": "daily_trigger2",
+    "properties": {
+        "annotations": [],
+        "runtimeState": "Started",
+        "pipelines": [
+            {
+                "pipelineReference": {
+                    "referenceName": "copy_all_tables",
+                    "type": "PipelineReference"
+                }
+            }
+        ],
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Day",
+                "interval": 1,
+                "startTime": "2025-11-28T14:45:00",
+                "endTime": "2025-11-30T18:02:00",
+                "timeZone": "Sri Lanka Standard Time"
+            }
+        }
+    }
+}

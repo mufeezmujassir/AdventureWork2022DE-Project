@@ -1,0 +1,36 @@
+{
+    "name": "ParquetSink",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "AzureDataLakeStorageLinkedServices",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "schamename": {
+                "type": "string"
+            },
+            "tablename": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Parquet",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobFSLocation",
+                "fileName": {
+                    "value": "@{concat(dataset().tablename,'.parquet')}",
+                    "type": "Expression"
+                },
+                "folderPath": {
+                    "value": "@{concat(dataset().schamename,'/',dataset().tablename)}",
+                    "type": "Expression"
+                },
+                "fileSystem": "bronze"
+            },
+            "compressionCodec": "snappy"
+        },
+        "schema": []
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
